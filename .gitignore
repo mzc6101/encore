@@ -1,0 +1,6 @@
+Encore.app/
+vendor/mediaremote-adapter/
+vendor/out/
+# Private research notes, not published
+SPEC.md
+DESIGN.md
