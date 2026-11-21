@@ -40,7 +40,7 @@ final class OverlayWindowController {
         let f = screen.frame
         let hosting = NSHostingView(rootView: rootView)
         // Lock screen: the system date, time, avatar, password field and message are Apple's own views, layered on top.
-        if mode == .lockScreen, ProcessInfo.processInfo.environment["ENCORE_DEBUG_NOLOGIN"] == nil, let login = LoginUIHost.makeView(frame: NSRect(origin: .zero, size: f.size)) {
+        if mode == .lockScreen, !Demo.isOn, let login = LoginUIHost.makeView(frame: NSRect(origin: .zero, size: f.size)) {
             let content = NSView(frame: NSRect(origin: .zero, size: f.size))
             hosting.frame = content.bounds
             hosting.autoresizingMask = [.width, .height]

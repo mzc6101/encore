@@ -78,6 +78,7 @@ final class NowPlayingStore: ObservableObject {
     private var fallbacksRunning = false
 
     func start() {
+        if Demo.isOn { snapshot = Demo.snapshot(); return }
         backends.first?.start()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             MainActor.assumeIsolated { self?.evaluate() }

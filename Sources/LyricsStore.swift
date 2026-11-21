@@ -52,9 +52,7 @@ final class LyricsStore: ObservableObject {
         query.artist = NowPlayingStore.cleanedArtist(track.artist)
         let id = track.id
         fetchTask = Task { [weak self, client] in
-            let fetched = ProcessInfo.processInfo.environment["ENCORE_DEBUG_LYRICS"] != nil
-                ? .synced((0..<150).map { LyricLine(id: $0, time: Double($0) * 2.5, text: "Placeholder lyric line number \($0 + 1)") })
-                : await client.lyrics(for: query)
+            let fetched = Demo.isOn ? Demo.lyrics : await client.lyrics(for: query)
             guard !Task.isCancelled, let self, self.currentTrackID == id else { return }
             self.result = fetched
             self.tick()

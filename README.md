@@ -4,6 +4,8 @@ A now-playing player for the macOS lock screen. While music plays and the Mac is
 artwork, synced lyrics and Liquid Glass playback controls, with the system clock, avatar and password field
 still in place.
 
+![Encore with synced lyrics](docs/lyrics.jpg)
+
 Works with **Apple Music**, **Spotify** and **YouTube Music** (tab or installed web app). Other audio,
 like regular YouTube videos, is ignored.
 
@@ -18,6 +20,11 @@ like regular YouTube videos, is ignored.
 - Favourite / like for Apple Music and YouTube Music.
 - Fullscreen player from the menu bar icon.
 - Light on resources: about 0.1% CPU and ~20 MB in the background; bounded caches.
+
+<p align="center">
+  <img src="docs/player.jpg" width="49%" alt="Centred player when a song has no lyrics">
+  <img src="docs/card.png" width="49%" alt="Liquid Glass control card">
+</p>
 
 ## Requirements
 
@@ -59,7 +66,8 @@ API and public Apple Music album pages (artwork), and Deezer's public search API
 ## Debugging
 
 `ENCORE_DEBUG_LOCK=1 /Applications/Encore.app/Contents/MacOS/Encore` shows the lock-screen layout in a normal
-window, without locking.
+window, without locking. Add `ENCORE_DEMO=1` for a made-up track with generated artwork and sample lyrics
+(how the screenshots above were made), and `ENCORE_DEMO_NOLYRICS=1` for the centred layout.
 
 ## Credits
 

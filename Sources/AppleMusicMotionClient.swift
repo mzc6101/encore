@@ -137,6 +137,7 @@ final class MotionArtworkProvider: ObservableObject {
         currentID = track?.id
         guard let track, Settings.shared.useAnimatedArtwork else { url = nil; return }
         if let forced = ProcessInfo.processInfo.environment["ENCORE_DEBUG_MOTION"] { url = URL(string: forced); return }
+        if Demo.isOn { url = nil; return }
         let client = client, storefront = Settings.shared.storefront
         task = Task { [weak self] in
             let video = await client.motionArtwork(for: track, storefront: storefront)
